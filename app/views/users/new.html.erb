@@ -2,7 +2,9 @@
 <%= form_for @user, url: {action: :create} do |f| %>
     <%= f.label :uid, 'ユーザーID' %>
     <%= f.text_field :uid %><br>
-    <%= f.label :pass, 'パスワード' %>
-    <%= f.password_field :pass %><br>
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password %><br>
+    <%= f.label :password_confirmation, 'パスワード（確認）' %>
+    <%= f.password_field :password_confirmation %><br>
     <%= f.submit '登録' %>
 <% end %>

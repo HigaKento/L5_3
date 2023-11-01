@@ -5,7 +5,7 @@
 <% end %>
 
 <%= link_to "[新規追加]",new_user_path %>
-<% if session[:login_uid] %>
+<% if current_user %>
     <%= link_to "[ログアウト]", top_logout_path %>
 <% else %>
     <%= link_to "[ログイン]", top_main_path %>
