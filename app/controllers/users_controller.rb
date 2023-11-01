@@ -8,10 +8,14 @@ class UsersController < ApplicationController
   end
   
   def create
-    p=BCrypt::Password.create(params[:user][:pass])
-    user=User.new(uid: params[:user][:uid],pass: p)
-    user.save
-    redirect_to users_path
+    if User.exists?(uid: params[:user][:uid])
+      redirect_to new_user_path
+    else
+      p=BCrypt::Password.create(params[:user][:pass])
+      user=User.new(uid: params[:user][:uid],pass: p)
+      user.save
+      redirect_to users_path
+    end
   end
   
   def destroy
